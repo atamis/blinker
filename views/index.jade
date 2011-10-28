@@ -10,6 +10,9 @@ form(method='post', action='/state')
   div#colors
     span Colors:
     input(name='colors', type="text", value=colors)
+  div#message
+    span Message:
+    input(name='message', type="text")
   div#submit
     input(type='submit', value='Update')
 
@@ -19,7 +22,9 @@ script
       url: '/state',
       data: $("form").serializeObject(),
       type: "POST",
-      success: function(x) { alert("Success")}
+      success: function(x) {
+        alert("Success");
+      }
     })
     return false;
   })

@@ -12,7 +12,7 @@ form(method='post', action='/state')
     input(name='colors', type="text", value=colors)
   div#message
     span Message:
-    input(name='message', type="text")
+    input(name='message', type="text", value=message)
   div#submit
     input(type='submit', value='Update')
 
@@ -23,7 +23,7 @@ script
       data: $("form").serializeObject(),
       type: "POST",
       success: function(x) {
-        alert("Success");
+        smoke.signal("Success");
       }
     })
     return false;

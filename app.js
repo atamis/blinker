@@ -30,7 +30,7 @@ app.configure('production', function(){
 // Data
 
 var config_file = "./state.json"
-var state = {speed: 60, colors: ["black", "white"]}
+var state = {speed: 60, colors: ["black", "white"], message: ""}
 
 fs.readFile(config_file, function(err, data){
   if (!err) {
@@ -51,7 +51,8 @@ app.get('/', function(req, res){
   res.render('index', {
     title: 'Blinker',
     speed: state.speed,
-    colors: state.colors.join(", ")
+    colors: state.colors.join(", "),
+    message: state.message
   });
 });
 
